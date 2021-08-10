@@ -10,9 +10,9 @@ function getArr() {
   return res;
 }
 
-function getLargeArr(array, num) {
+function getLargeArr(array) {
   let result = [];
-  num = +prompt("Given number is not larger");
+  let num = +prompt("Given number is not larger");
 
   array.forEach((val) => {
     if (val > num) {
@@ -76,7 +76,7 @@ function isOdd(n) {
   temp = n % 10;
   sum = (n - temp) / 10;
   if (temp % 2 === 0) {
-    return 1;
+    return false;
   } else if (temp <= 0) {
     return false;
   } else {
@@ -85,3 +85,81 @@ function isOdd(n) {
 }
 
 console.log(isOdd(num));
+
+//4. Given an array of numbers. Write a recursive function to find its minimal positive element. (if such element does not exist, return -1)․
+
+//  Add array
+function addArr() {
+  let arrLength = +prompt("Enter array length");
+  let res = [];
+
+  for (let i = 0; i < arrLength; i++) {
+    res.push(+prompt('Enter Array"a'));
+  }
+  return res;
+}
+
+//---------------
+
+function minArr(arr, i = 0) {
+  let result = -1;
+
+  if (arr.length === 0 || arr[i] === undefined) {
+    return result;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1] && arr[i] >= 0) {
+      result = arr[i];
+    }
+  }
+  arr.shift();
+  return result < minArr(arr) ? -1 : result;
+}
+
+console.log(minArr(addArr()));
+
+//--------filter----------/-
+
+function minArr(arr) {
+  let res = [];
+
+  arr.filter((el) => {
+    if (el >= 0) {
+      res.push(el);
+    }
+  });
+  return Math.min.apply(arr, res);
+}
+
+// 5. Given an array of numbers which is almost sorted in ascending order.  Find the index where sorting order is violated.
+
+//  Add array
+function addArr() {
+  let arrLength = +prompt("Enter array length");
+  let res = [];
+
+  for (let i = 0; i < arrLength; i++) {
+    res.push(+prompt('Enter Array"a'));
+  }
+  return res;
+}
+
+//---------------
+
+function fn2(arr) {
+  let res;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= arr[i + 1]) {
+      continue;
+    } else {
+      res = arr[i + 1];
+      break;
+    }
+  }
+
+  return arr.indexOf(res);
+}
+
+console.log(fn2(addArr()));
