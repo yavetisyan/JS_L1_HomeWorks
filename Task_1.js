@@ -55,8 +55,7 @@ console.log(findLargestWord(str));
 
 // 3. Write a function to find longest substring in a given a string without repeating characters except space character. If there are several, return the last one. Consider that all letters are lowercase.
 
-let str =
-  'there are no two words in the english language more harmful than "good job";.'; //prompt("Enter some String");
+let str ='there are no two words in the english language more harmful than "good job"'; //prompt("Enter some String");
 
 function sort(names) {
   let word = "".trim();
